@@ -66,11 +66,13 @@ Notebook: `Placement_predictor_decisiontree.ipynb`
 
 ## 📈 Results
 
-| Model                   | Accuracy |
-| ----------------------- | -------: |
-| Logistic Regression     |      51% |
-| Decision Tree (Gini)    |      50% |
-| Decision Tree (Entropy) |    48.5% |
+The models were evaluated using **accuracy, precision, recall, and F1-score**.
+
+| Model                   | Accuracy | Precision | Recall | F1-score |
+| ----------------------- | -------: | --------: | -----: | -------: |
+| Logistic Regression     |      51% |      0.49 |   0.49 |     0.47 |
+| Decision Tree (Gini)    |      50% |      0.50 |   0.50 |     0.50 |
+| Decision Tree (Entropy) |    48.5% |      0.48 |   0.48 |     0.48 |
 
 The models achieved around 50% accuracy on the test data.
 
@@ -123,6 +125,7 @@ More details are available in `DECISIONS.md`.
 ```text
 placement-readiness-predictor/
 │
+├── placement_readiness_synthetic_10000.csv
 ├── placement_predictor_logisticregression.ipynb
 ├── Placement_predictor_decisiontree.ipynb
 ├── README.md
@@ -130,7 +133,7 @@ placement-readiness-predictor/
 └── AI_USAGE.md
 ```
 
-The dataset was provided separately as part of the GDG task.
+The dataset was provided as part of the GDG task.
 
 ## 📚 What I Learned
 
