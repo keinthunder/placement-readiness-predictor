@@ -1,94 +1,162 @@
 # Placement Readiness Predictor
 
-A small Machine Learning project that predicts whether a student is **Placed** or **Not Placed** using placement-related student data.
+A Machine Learning project that predicts whether a student is **Placed** or **Not Placed** using placement-related student data.
 
-This project was built as part of my **GDG AI/ML task** to understand the complete Machine Learning workflow — from data preprocessing and feature selection to training, prediction, and model evaluation.
+This project was built as part of my **GDG AI/ML task** to understand the complete Machine Learning workflow.
 
 ## 🎯 Objective
 
-The main objective of this project is to build a **binary classification system** that learns from student placement data and predicts the placement outcome of a student.
+The goal is to build a **binary classification model** that learns from student placement data.
 
-The target variable is:
+**Target:**
 
 * `1` → Placed
 * `0` → Not Placed
 
 ## 📊 Dataset
 
-The project uses the **synthetic placement dataset provided as part of the GDG task**.
-
-The dataset contains student-related academic, skill, and career-preparation information.
+The project uses the **synthetic placement dataset provided for the GDG task**.
 
 ### Features Used
 
-| Feature          | Description                                     |
-| ---------------- | ----------------------------------------------- |
-| `cgpa`           | Student's CGPA                                  |
-| `backlogs`       | Number of backlogs                              |
-| `projects`       | Number of projects                              |
-| `tech_skill`     | Technical skill score                           |
-| `comm_skill`     | Communication skill score                       |
-| `apt_skill`      | Aptitude skill score                            |
-| `team_skill`     | Teamwork skill score                            |
-| `certifications` | Whether the student has certifications          |
-| `internship`     | Whether the student has completed an internship |
-| `training`       | Whether the student has completed training      |
+* CGPA
+* Backlogs
+* Projects
+* Technical skill
+* Communication skill
+* Aptitude skill
+* Teamwork skill
+* Certifications
+* Internship
+* Training
 
-### Target
+These features were selected because they represent different parts of a student's academic performance, skills, and placement preparation.
 
-`placement`
+## 🧹 Preprocessing
 
-* `Placed` → `1`
-* Other placement status → `0`
+The following preprocessing steps were performed:
 
-## 🧹 Data Preprocessing
-
-Before training the models, I performed some basic preprocessing:
-
-* Converted the `backlogs` column into numeric values.
-* Converted certification information into binary values:
-
-  * Certification present → `1`
-  * Missing certification → `0`
-* Encoded internship:
-
-  * `Yes` → `1`
-  * Other values → `0`
-* Encoded training:
-
-  * `Yes` → `1`
-  * Other values → `0`
-* Converted the backlog information into a simple binary feature:
-
-  * `0 or 1 backlog` → `1`
-  * More than 1 backlog → `0`
+* Converted `backlogs` to numeric values.
+* Certifications: present → `1`, missing → `0`.
+* Internship: `Yes` → `1`, otherwise → `0`.
+* Training: `Yes` → `1`, otherwise → `0`.
+* Backlogs: `0 or 1` → `1`, otherwise → `0`.
 * Removed duplicate rows.
-* Split the dataset into training and testing data using an **80:20 ratio**.
-* Used stratification during the train-test split to maintain the class distribution.
+* Split the data into **80% training and 20% testing** data.
+* Used stratification during the split.
 
-## 🤖 Machine Learning Models
-
-I compared two simple classification approaches.
+## 🤖 Models
 
 ### 1. Logistic Regression
 
-Logistic Regression was used as a simple baseline classification model.
+Used as a simple baseline classification model.
 
-It predicts the probability of a student belonging to one of the two classes and then classifies the student as **Placed** or **Not Placed**.
-
-Notebook:
-
-`placement_predictor_logisticregression.ipynb`
+Notebook: `placement_predictor_logisticregression.ipynb`
 
 ### 2. Decision Tree
 
-A Decision Tree was used to learn classification rules from the selected features.
+Used to learn classification rules from the selected features.
 
-I also compared two splitting criteria:
+Two criteria were tested:
 
-* **Gini Impurity**
-* **Entropy**
+* Gini
+* Entropy
 
-Notebook:
+Notebook: `Placement_predictor_decisiontree.ipynb`
 
-`Placement_pre_
+## 📈 Results
+
+| Model                   | Accuracy |
+| ----------------------- | -------: |
+| Logistic Regression     |      51% |
+| Decision Tree (Gini)    |      50% |
+| Decision Tree (Entropy) |    48.5% |
+
+The models achieved around 50% accuracy on the test data.
+
+I kept these actual results instead of changing the target or data just to obtain a higher score.
+
+## 🔍 Example Prediction
+
+A sample student with:
+
+* CGPA: `8.5`
+* Backlogs: `0`
+* Projects: `6`
+* Skill scores: `4`
+* Certification: `Yes`
+* Internship: `Yes`
+* Training: `Yes`
+
+was given to the models.
+
+The prediction was:
+
+**Not Placed**
+
+## 💡 Important Learning
+
+Initially, I created the target using conditions based on the same features given to the model. This produced around **98% accuracy** because I was essentially defining the pattern myself.
+
+I corrected this by using the actual placement column:
+
+```python
+y = (df["placement"] == "Placed").astype(int)
+```
+
+After this correction, the accuracy became around 50%.
+
+This taught me that the target variable must represent the actual problem instead of being created from assumptions.
+
+More details are available in `DECISIONS.md`.
+
+## 🛠️ Technologies
+
+* Python
+* Pandas
+* Scikit-learn
+* Google Colab
+* GitHub
+
+## 📁 Project Structure
+
+```text
+placement-readiness-predictor/
+│
+├── placement_predictor_logisticregression.ipynb
+├── Placement_predictor_decisiontree.ipynb
+├── README.md
+├── DECISIONS.md
+└── AI_USAGE.md
+```
+
+The dataset was provided separately as part of the GDG task.
+
+## 📚 What I Learned
+
+* Data preprocessing
+* Feature selection
+* Categorical encoding
+* Train-test splitting
+* Logistic Regression
+* Decision Trees
+* Model evaluation
+* Precision, recall and F1-score
+* Debugging Machine Learning code
+* Understanding model results
+
+## 🚀 Future Improvements
+
+* Try more classification algorithms.
+* Perform hyperparameter tuning.
+* Use cross-validation.
+* Analyze feature importance.
+* Build a simple input interface.
+
+## 👨‍💻 Author
+
+**Shashank Verma**
+
+B.Tech — Artificial Intelligence & Machine Learning
+
+Built for the **GDG AI/ML task**.
