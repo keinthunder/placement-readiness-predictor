@@ -47,18 +47,6 @@ For the Decision Tree, I also tried both:
 * Gini
 * Entropy
 
-The results were:
-
-| Model                   | Accuracy |
-| ----------------------- | -------: |
-| Logistic Regression     |    50.5% |
-| Decision Tree - Gini    |      50% |
-| Decision Tree - Entropy |    54.5% |
-
-The results were quite close, so I kept all the experiments in the notebooks.
-
----
-
 ## 3. Choosing the Features
 
 I used 10 features:
