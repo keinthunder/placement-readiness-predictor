@@ -51,9 +51,9 @@ The results were:
 
 | Model                   | Accuracy |
 | ----------------------- | -------: |
-| Logistic Regression     |      51% |
+| Logistic Regression     |    50.5% |
 | Decision Tree - Gini    |      50% |
-| Decision Tree - Entropy |    48.5% |
+| Decision Tree - Entropy |    54.5% |
 
 The results were quite close, so I kept all the experiments in the notebooks.
 
