@@ -70,6 +70,10 @@ Notebook: `Placement_predictor_decisiontree.ipynb`
 | Decision Tree (Entropy) | **55%** | **0.54** | **0.55** | **0.54** |
 | Logistic Regression | 51% | 0.49 | 0.51 | 0.47 |
 
+the Decision Tree using the **Entropy criterion** performed the best with an accuracy of **55%**. Logistic Regression achieved **51%**, while the Decision Tree using Gini achieved **50%**.
+
+Therefore, for this dataset, **Decision Tree with Entropy** gave the best overall performance.
+
 ## 🔍 Example Prediction
 
 A sample student with:
