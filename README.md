@@ -64,6 +64,12 @@ Two criteria were tested:
 
 Notebook: `Placement_predictor_decisiontree.ipynb`
 
+| Model | Accuracy | Precision | Recall | F1-Score |
+|---|---:|---:|---:|---:|
+| Decision Tree (Gini) | 50% | 0.50 | 0.50 | 0.50 |
+| Decision Tree (Entropy) | **55%** | **0.54** | **0.55** | **0.54** |
+| Logistic Regression | 51% | 0.49 | 0.51 | 0.47 |
+
 ## 🔍 Example Prediction
 
 A sample student with:
