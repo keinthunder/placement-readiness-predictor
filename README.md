@@ -64,20 +64,6 @@ Two criteria were tested:
 
 Notebook: `Placement_predictor_decisiontree.ipynb`
 
-## 📈 Results
-
-The models were evaluated using **accuracy, precision, recall, and F1-score**.
-
-| Model                   | Accuracy | Precision | Recall | F1-score |
-| ----------------------- | -------: | --------: | -----: | -------: |
-| Logistic Regression     |      51% |      0.49 |   0.49 |     0.47 |
-| Decision Tree (Gini)    |      50% |      0.50 |   0.50 |     0.50 |
-| Decision Tree (Entropy) |    48.5% |      0.48 |   0.48 |     0.48 |
-
-The models achieved around 50% accuracy on the test data.
-
-I kept these actual results instead of changing the target or data just to obtain a higher score.
-
 ## 🔍 Example Prediction
 
 A sample student with:
